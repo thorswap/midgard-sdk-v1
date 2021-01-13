@@ -1,0 +1,70 @@
+{
+  "name": "midgard-sdk",
+  "version": "1.0.0",
+  "description": "Javascript SDK for THORChain Midgard API",
+  "keywords": ["THORChain", "Midgard", "API", "SDK", "Typescript"],
+  "author": "skyorion427",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "rimraf lib/**",
+    "test": "jest",
+    "test:coverage": "jest --forceExit --coverage --verbose",
+    "watch-test": "npm run test -- --watchAll",
+    "lint": "tsc --noEmit && eslint \"src/**/*.{js,ts}\"",
+    "generate:api": "yarn clean:api:midgard && yarn generate:api:midgard",
+    "generate:api:midgard": "openapi-generator-cli generate -i https://midgard.bepswap.com/v1/swagger.json -g typescript-axios -o ./src/midgard-openapi --reserved-words-mappings in=in",
+    "clean:api:midgard": "rm -rf ./src/midgard-openapi",
+    "prepublish": "tsc --build"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@openapitools/openapi-generator-cli": "^2.1.16",
+    "@types/cron": "^1.7.2",
+    "@types/eslint": "^7.2.6",
+    "@types/jest": "^26.0.19",
+    "@types/node": "^14.14.19",
+    "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "@typescript-eslint/parser": "^4.11.1",
+    "eslint": "^7.17.0",
+    "eslint-plugin-import": "^2.22.1",
+    "husky": "^4.3.6",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.3",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.2.1",
+    "ts-jest": "^26.4.4",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --trailing-comma all --write",
+      "git add"
+    ]
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
