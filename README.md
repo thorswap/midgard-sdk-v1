@@ -1,4 +1,4 @@
-# Midgard SDK
+# Midgard SDK V1
 
 [![License](https://img.shields.io/npm/l/make-coverage-badge.svg)](https://opensource.org/licenses/MIT)
 ![ts](https://flat.badgen.net/badge/Built%20With/TypeScript/blue)
@@ -9,14 +9,14 @@ Midgard API Documentation: [midgard.bepswap.com/v1/doc](https://midgard.bepswap.
 ## Installation
 
 ```sh
-yarn add @thorchain/midgard-sdk
+yarn add @thorchain/midgard-sdk-v1
 ```
 
 ## Usage
 
 ```sh
 
-import Midgard from '@thorchain/midgard-sdk'
+import Midgard from '@thorchain/midgard-sdk-v1'
 
 // choose network
 const midgard = new Midgard(); // set chaosnet as default
