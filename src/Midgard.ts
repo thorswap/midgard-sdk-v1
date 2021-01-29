@@ -1,10 +1,6 @@
+import { DefaultApi, ThorchainEndpoints, ThorchainEndpoint } from './api';
+import { Configuration } from './api/configuration';
 import { midgardApiUrl } from './config';
-import {
-  DefaultApi,
-  ThorchainEndpoints,
-  ThorchainEndpoint,
-} from './midgard-openapi';
-import { Configuration } from './midgard-openapi/configuration';
 import {
   Nothing,
   Maybe,

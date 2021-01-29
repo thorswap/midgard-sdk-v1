@@ -1,6 +1,6 @@
-import { InlineResponse200, InlineResponse2001 } from '../midgard-openapi/api';
+import { InlineResponse200, InlineResponse2001 } from '../api';
 
-export * from '../midgard-openapi/api';
+export * from '../api';
 
 export type Network = 'testnet' | 'chaosnet';
 

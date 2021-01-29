@@ -16,8 +16,8 @@
     "watch-test": "npm run test -- --watchAll",
     "lint": "tsc --noEmit && eslint \"src/**/*.{js,ts}\"",
     "generate:api": "yarn clean:api:midgard && yarn generate:api:midgard",
-    "generate:api:midgard": "openapi-generator-cli generate -i https://midgard.bepswap.com/v1/swagger.json -g typescript-axios -o ./src/midgard-openapi --reserved-words-mappings in=in",
-    "clean:api:midgard": "rm -rf ./src/midgard-openapi",
+    "generate:api:midgard": "openapi-generator-cli generate -i https://midgard.bepswap.com/v1/swagger.json -g typescript-axios -o ./src/api --reserved-words-mappings in=in",
+    "clean:api:midgard": "rm -rf ./src/api",
     "prepublish": "tsc --build"
   },
   "dependencies": {
