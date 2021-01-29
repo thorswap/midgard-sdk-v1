@@ -27,7 +27,35 @@ import {
   PoolEarningDetail,
 } from './types';
 
-class Midgard {
+export interface MidgardSDKV1 {
+  version: string;
+  getBaseUrl: () => string;
+  getHealth: () => Promise<Health>;
+  getStats: () => Promise<StatsData>;
+  getNetworkData: () => Promise<NetworkInfo>;
+  getTx: (query: TxQuery) => Promise<TxData>;
+  getAssetInfo: (asset: string) => Promise<AssetDetail[]>;
+  getPools: (status?: PoolStatus) => Promise<string[]>;
+  getPoolDetail: (assets: string[], view?: PoolView) => Promise<PoolDetail[]>;
+  getStakers: () => Promise<string[]>;
+  getStakerData: (address: string) => Promise<StakersAddressData>;
+  getStakerPoolData: (param: {
+    address: string;
+    asset: string;
+  }) => Promise<StakersAssetData[]>;
+  getPoolAddress: () => Promise<string>;
+  getPoolAggChanges: (
+    param: GetPoolAggChangesParam,
+  ) => Promise<PoolAggChanges[]>;
+  getStatsChanges: (param: GetStatsChangesParam) => Promise<StatsChanges[]>;
+  getPoolEarningDetail: (pool: string) => Promise<PoolEarningDetail>;
+  getNodePublicKeys: () => Promise<NodeKey[]>;
+  getTHORChainConstants: () => Promise<ThorchainConstants>;
+  getTHORChainLastblock: () => Promise<ThorchainLastblock>;
+  getTHORChainQueue: () => Promise<ThorchainQueue>;
+}
+
+class Midgard implements MidgardSDKV1 {
   private baseUrl: string;
   private apiConfig: Configuration;
   private midgardAPI: DefaultApi;
