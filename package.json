@@ -1,8 +1,8 @@
 {
-  "name": "midgard-sdk",
+  "name": "midgard-sdk-v1",
   "version": "1.0.0",
   "description": "Javascript SDK for THORChain Midgard API",
-  "keywords": ["THORChain", "Midgard", "API", "SDK", "Typescript"],
+  "keywords": ["THORChain", "Midgard", "V1", "API", "SDK", "Typescript"],
   "author": "skyorion427",
   "license": "MIT",
   "main": "lib/index.js",

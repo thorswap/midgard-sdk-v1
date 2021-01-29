@@ -36,6 +36,8 @@ class Midgard {
   private apiConfig: Configuration;
   private midgardAPI: DefaultApi;
 
+  public readonly version = 'V1';
+
   constructor(network: Network = 'chaosnet') {
     this.baseUrl =
       network === 'chaosnet' ? midgardApiUrl.chaosnet : midgardApiUrl.testnet;
