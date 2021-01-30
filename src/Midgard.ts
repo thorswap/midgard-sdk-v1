@@ -55,7 +55,7 @@ export interface MidgardSDKV1 {
   getTHORChainQueue: () => Promise<ThorchainQueue>;
 }
 
-class Midgard implements MidgardSDKV1 {
+class MidgardV1 implements MidgardSDKV1 {
   private baseUrl: string;
   private apiConfig: Configuration;
   private midgardAPI: DefaultApi;
@@ -315,4 +315,4 @@ class Midgard implements MidgardSDKV1 {
   };
 }
 
-export default Midgard;
+export { MidgardV1 };

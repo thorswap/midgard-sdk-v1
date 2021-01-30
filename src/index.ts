@@ -1,6 +1,3 @@
-import Midgard from './Midgard';
-
-export default Midgard;
-
-export * from './types/midgard';
+export * from './Midgard';
+export * from './types';
 export * from './config';
