@@ -28,7 +28,7 @@ import {
 } from './types';
 
 export interface MidgardSDKV1 {
-  version: string;
+  getVersion: () => string;
   getBaseUrl: () => string;
   getHealth: () => Promise<Health>;
   getStats: () => Promise<StatsData>;
@@ -60,7 +60,7 @@ class MidgardV1 implements MidgardSDKV1 {
   private apiConfig: Configuration;
   private midgardAPI: DefaultApi;
 
-  public readonly version = 'V1';
+  private readonly version = 'V1';
 
   constructor(network: Network = 'chaosnet') {
     this.baseUrl =
@@ -69,6 +69,10 @@ class MidgardV1 implements MidgardSDKV1 {
     this.apiConfig = new Configuration({ basePath: this.baseUrl });
     this.midgardAPI = new DefaultApi(this.apiConfig);
   }
+
+  getVersion = (): string => {
+    return this.version;
+  };
 
   getBaseUrl = (): string => {
     return this.baseUrl;
